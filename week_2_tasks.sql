@@ -87,14 +87,12 @@ INSERT INTO PlayerRegistration (DateRegistered,PlayerID,ClubName,Year,SeasonName
 ('2019-06-12',10004,'VicUni Basketball Club',2019,'Winter','U16',4),
 ('2019-06-14',10005,'SwinTeam Basketball Club',2019,'Winter','U16',3);
 
-Select p.PlayerID, p.FName, p.LName, c.ClubName, c.ContactName, t.Year, t.SeasonName, t.AgeGroup, t.TeamNumber
-FROM (((PlayerRegistration r
+Select r.PlayerID, p.FName, p.LName, r.ClubName, c.ContactName, r.Year, r.SeasonName, r.AgeGroup, r.TeamNumber
+FROM ((PlayerRegistration r
 INNER JOIN Player p
 ON r.PlayerID = p.PlayerID)
-INNER JOIN TeamEntry t
-ON r.AgeGroup = t.AgeGroup)
 INNER JOIN Club c
-ON t.ClubName = c.ClubName)
+ON r.ClubName = c.ClubName)
 Order By PlayerID asc;
 
 Select t.Year, t.AgeGroup, count(p.PlayerID)
