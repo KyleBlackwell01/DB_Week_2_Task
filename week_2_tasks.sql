@@ -76,6 +76,8 @@ INSERT INTO Club (ClubName,ContactName) VALUES
 INSERT INTO TeamEntry (ClubName,Year,SeasonName,AgeGroup,TeamNumber) VALUES
 ('Mt Martha Basketball Club',2018,'Summer','U14',1),
 ('Mt Martha Basketball Club',2018,'Summer','U14',2),
+('SwinTeam Basketball Club',2018,'Winter','U16',6),
+('SwinTeam Basketball Club',2019,'Winter','U14',2),
 ('SwinTeam Basketball Club',2019,'Winter','U16',3),
 ('VicUni Basketball Club',2019,'Winter','U16',4);
 
@@ -84,3 +86,20 @@ INSERT INTO PlayerRegistration (DateRegistered,PlayerID,ClubName,Year,SeasonName
 ('2018-06-11',10002,'Mt Martha Basketball Club',2018,'Summer','U14',1),
 ('2019-06-12',10004,'VicUni Basketball Club',2019,'Winter','U16',4),
 ('2019-06-14',10005,'SwinTeam Basketball Club',2019,'Winter','U16',3);
+
+Select p.PlayerID, p.FName, p.LName, c.ClubName, c.ContactName, t.Year, t.SeasonName, t.AgeGroup, t.TeamNumber
+FROM (((PlayerRegistration r
+INNER JOIN Player p
+ON r.PlayerID = p.PlayerID)
+INNER JOIN TeamEntry t
+ON r.AgeGroup = t.AgeGroup)
+INNER JOIN Club c
+ON t.ClubName = c.ClubName)
+Order By PlayerID asc;
+
+Select t.Year, t.AgeGroup, count(p.PlayerID)
+FROM (TeamEntry t
+INNER JOIN PlayerRegistration p
+ON t.Year = p.Year)
+GROUP BY t.Year, t.AgeGroup
+ORDER BY t.Year, t.AgeGroup;
