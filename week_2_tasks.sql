@@ -95,7 +95,7 @@ INNER JOIN Club c
 ON r.ClubName = c.ClubName)
 Order By PlayerID asc;
 
-Select t.Year, t.AgeGroup, count(p.PlayerID)
+Select t.Year, t.AgeGroup, count(p.PlayerID) as "Number of Player"
 FROM (TeamEntry t
 INNER JOIN PlayerRegistration p
 ON t.Year = p.Year)
