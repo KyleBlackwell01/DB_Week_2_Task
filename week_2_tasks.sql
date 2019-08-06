@@ -55,3 +55,32 @@ CREATE TABLE PlayerRegistration
 
 
 
+INSERT INTO Player (PlayerID,FName,LName,Phone) VALUES
+(10002,'John','Howard','5552345'),
+(10003,'Julia','Gillard','5553456'),
+(10004,'Tim','Burwood','5554567'),
+(10005,'Tess','Spotswood','5555678');
+
+INSERT INTO Season (Year,SeasonName) VALUES
+(2018,'Winter'),
+(2018,'Summer'),
+(2019,'Winter'),
+(2019,'Summer');
+
+INSERT INTO Club (ClubName,ContactName) VALUES
+('Mt Martha Basketball Club', 'Bob Jane'),
+('SwinTeam Basketball Club','June Crow'),
+('Monash Basketball Club','George Wood'),
+('VicUni Basketball Club','James Mars');
+
+INSERT INTO TeamEntry (ClubName,Year,SeasonName,AgeGroup,TeamNumber) VALUES
+('Mt Martha Basketball Club',2018,'Summer','U14',1),
+('Mt Martha Basketball Club',2018,'Summer','U14',2),
+('SwinTeam Basketball Club',2019,'Winter','U16',3),
+('VicUni Basketball Club',2019,'Winter','U16',4);
+
+INSERT INTO PlayerRegistration (DateRegistered,PlayerID,ClubName,Year,SeasonName,AgeGroup,TeamNumber) VALUES
+('2018-01-22',10003,'Mt Martha Basketball Club',2018,'Summer','U14',2),
+('2018-06-11',10002,'Mt Martha Basketball Club',2018,'Summer','U14',1),
+('2019-06-12',10004,'VicUni Basketball Club',2019,'Winter','U16',4),
+('2019-06-14',10005,'SwinTeam Basketball Club',2019,'Winter','U16',3);
