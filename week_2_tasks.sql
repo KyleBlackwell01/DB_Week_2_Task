@@ -101,3 +101,10 @@ INNER JOIN PlayerRegistration p
 ON t.Year = p.Year)
 GROUP BY t.Year, t.AgeGroup
 ORDER BY t.Year, t.AgeGroup;
+
+
+Select PlayerID, FName as "First Name", LName as "Last Name"
+FROM Player
+Where FName IN ( Select FName
+                FROM Player
+                WHERE Fname LIKE 'J%')
