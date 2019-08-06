@@ -41,6 +41,7 @@ CREATE TABLE TeamEntry
 
 CREATE TABLE PlayerRegistration
 (
+    DateRegistered DATE,
     PlayerID INT,
     ClubName VARCHAR(100),
     Year INT,
@@ -51,3 +52,6 @@ CREATE TABLE PlayerRegistration
     FOREIGN KEY (PlayerID) REFERENCES Player,
     FOREIGN KEY (AgeGroup,TeamNumber,ClubName,Year,SeasonName) REFERENCES TeamEntry
 )
+
+
+
